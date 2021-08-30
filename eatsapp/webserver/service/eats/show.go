@@ -1,8 +1,8 @@
 package eats
 
 import (
-	"github.com/venkat1109/cadence-codelab/eatsapp/webserver/service"
-	//"github.com/venkat1109/cadence-codelab/eatsapp/worker/workflow/eats"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
+	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/eats"
 	s "go.uber.org/cadence/.gen/go/shared"
 	"net/http"
 	"reflect"

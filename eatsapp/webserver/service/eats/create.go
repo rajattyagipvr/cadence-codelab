@@ -1,7 +1,7 @@
 package eats
 
 import (
-	// "github.com/venkat1109/cadence-codelab/eatsapp/worker/workflow/eats"
+	// "github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/eats"
 	"fmt"
 	"go.uber.org/cadence"
 	"net/http"

@@ -6,7 +6,7 @@ import (
 	"go.uber.org/cadence"
 	"go.uber.org/zap"
 
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/activity/restaurant"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/activity/restaurant"
 )
 
 func init() {

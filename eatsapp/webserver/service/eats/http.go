@@ -1,7 +1,7 @@
 package eats
 
 import (
-	common "github.com/venkat1109/cadence-codelab/eatsapp/webserver/service"
+	common "github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
 	"go.uber.org/cadence"
 	s "go.uber.org/cadence/.gen/go/shared"
 	"net/http"

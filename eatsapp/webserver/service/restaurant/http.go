@@ -1,7 +1,7 @@
 package restaurant
 
 import (
-	common "github.com/venkat1109/cadence-codelab/eatsapp/webserver/service"
+	common "github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
 	"go.uber.org/cadence"
 	"net/http"
 )

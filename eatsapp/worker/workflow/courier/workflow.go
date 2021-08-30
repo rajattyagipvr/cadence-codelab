@@ -3,7 +3,7 @@ package courier
 import (
 	"time"
 
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/activity/courier"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/activity/courier"
 
 	"go.uber.org/cadence"
 	"go.uber.org/zap"

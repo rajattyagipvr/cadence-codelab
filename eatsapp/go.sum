@@ -137,6 +137,8 @@ github.com/prometheus/procfs v0.0.2/go.mod h1:TjEm7ze935MbeOT/UhFTIMYKhuLP4wbCsT
 github.com/prometheus/procfs v0.0.8/go.mod h1:7Qr8sr6344vo1JqZ6HhLceV9o3AJ1Ff+GxbHq6oeK9A=
 github.com/prometheus/procfs v0.0.9 h1:DksSrntiTPE63NQuxGcFa1OS/odKfwJu3PJHrhKAy7Q=
 github.com/prometheus/procfs v0.0.9/go.mod h1:7Qr8sr6344vo1JqZ6HhLceV9o3AJ1Ff+GxbHq6oeK9A=
+github.com/rajattyagipvr/cadence-codelab v0.0.0-20210830120938-039b7075cf6c h1:PnDy/jvG8GYFDxACB+YfVXWeChUyB9qUeUpOEOBI2zM=
+github.com/rajattyagipvr/cadence-codelab v0.0.0-20210830120938-039b7075cf6c/go.mod h1:dhfftiyaaFmjEN1VE8KcZI5gobsJZaqnOgrKdB4Ls+c=
 github.com/robfig/cron v1.2.0 h1:ZjScXvvxeQ63Dbyxy76Fj3AT3Ut0aKsyd2/tl3DTMuQ=
 github.com/robfig/cron v1.2.0/go.mod h1:JGuDeoQd7Z6yL4zQhZ3OPEVHB7fL6Ka6skscFHfmt2k=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
@@ -169,8 +171,8 @@ github.com/uber/jaeger-lib v2.2.0+incompatible/go.mod h1:ComeNDZlWwrWnDv8aPp0Ba6
 github.com/uber/ringpop-go v0.8.5/go.mod h1:zVI6eGO6L7pG14GkntHsSOfmUAWQ7B4lvmzly4IT4ls=
 github.com/uber/tchannel-go v1.16.0 h1:B7dirDs15/vJJYDeoHpv3xaEUjuRZ38Rvt1qq9g7pSo=
 github.com/uber/tchannel-go v1.16.0/go.mod h1:Rrgz1eL8kMjW/nEzZos0t+Heq0O4LhnUJVA32OvWKHo=
-github.com/venkat1109/cadence-codelab v0.0.0-20170714232621-7455d747e4cf h1:NWjfALQIjwHpf03QX9nhyft26h7jIDkBBsq7WAEYjbc=
-github.com/venkat1109/cadence-codelab v0.0.0-20170714232621-7455d747e4cf/go.mod h1:/fyF5+3B/4kQ+pGXf0cOiDiZTWSxy4HbtGhBIbOs6eA=
+github.com/rajattyagipvr/cadence-codelab v0.0.0-20170714232621-7455d747e4cf h1:NWjfALQIjwHpf03QX9nhyft26h7jIDkBBsq7WAEYjbc=
+github.com/rajattyagipvr/cadence-codelab v0.0.0-20170714232621-7455d747e4cf/go.mod h1:/fyF5+3B/4kQ+pGXf0cOiDiZTWSxy4HbtGhBIbOs6eA=
 github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 go.uber.org/atomic v1.3.2/go.mod h1:gD2HeocX3+yG+ygLZcrzQJaqmWj9AIm7n08wl/qW/PE=
