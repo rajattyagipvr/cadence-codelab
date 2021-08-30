@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/venkat1109/cadence-codelab/common"
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/activity/courier"
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/activity/eats"
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/activity/restaurant"
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/workflow/courier"
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/workflow/eats"
-	"github.com/venkat1109/cadence-codelab/eatsapp/worker/workflow/restaurant"
+	"github.com/rajattyagipvr/cadence-codelab/common"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/activity/courier"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/activity/eats"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/activity/restaurant"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/courier"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/eats"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/restaurant"
 	"go.uber.org/cadence"
 )
 
