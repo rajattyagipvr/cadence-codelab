@@ -5,11 +5,10 @@ import (
 	"io/ioutil"
 
 	"go.uber.org/cadence"
-	m "go.uber.org/cadence/.gen/go/cadence"
-	s "go.uber.org/cadence/.gen/go/shared"
-	"go.uber.org/cadence/common"
+	"go.uber.org/cadence/.gen/go/cadence"
+	"go.uber.org/cadence/.gen/go/shared"
+	//"go.uber.org/cadence/common"
 	"go.uber.org/zap"
-
 	"github.com/uber-go/tally"
 	"gopkg.in/yaml.v2"
 )

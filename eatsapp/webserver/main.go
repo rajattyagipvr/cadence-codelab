@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/venkat1109/cadence-codelab/common"
-	"github.com/venkat1109/cadence-codelab/eatsapp/webserver/service"
-	"github.com/venkat1109/cadence-codelab/eatsapp/webserver/service/courier"
-	"github.com/venkat1109/cadence-codelab/eatsapp/webserver/service/eats"
-	"github.com/venkat1109/cadence-codelab/eatsapp/webserver/service/restaurant"
+	"github.com/rajattyagipvr/cadence-codelab/common"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/courier"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/eats"
+	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/restaurant"
 )
 
 func main() {
