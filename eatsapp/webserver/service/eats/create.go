@@ -3,9 +3,10 @@ package eats
 import (
 	// "github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/eats"
 	"fmt"
-	"go.uber.org/cadence/client"
 	"net/http"
 	"strings"
+
+	"github.com/uber/cadence/common/types"
 	// "time"
 )
 
@@ -35,12 +36,13 @@ func (h *EatsService) create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	url := fmt.Sprintf("/eats-orders?id=%s&run_id=%s&page=eats-order-status", execution.ID, execution.RunID)
+	url := fmt.Sprintf("/eats-orders?id=%s&run_id=%s&page=eats-order-status", execution.WorkflowID, execution.RunID)
 	http.Redirect(w, r, url, http.StatusFound)
 }
 
 // startOrderWorkflow starts the eats order workflow
-func (h *EatsService) startOrderWorkflow(items []string) (*client.WorkflowExecution, error) {
+
+func (h *EatsService) startOrderWorkflow(items []string) (*types.WorkflowExecution, error) {
 	// THIS IS A PLACEHOLDER IMPLEMENTATION
 	return nil, fmt.Errorf("not implemented")
 }

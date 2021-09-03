@@ -4,11 +4,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/rajattyagipvr/cadence-codelab/common"
+	"go.uber.org/zap"
+
+	//"github.com/rajattyagipvr/cadence-codelab/common"
 	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
 	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/courier"
 	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/eats"
 	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/restaurant"
+	"trying/helper"
 	"trying/webserver/service"
 	"trying/webserver/service/courier"
 	"trying/webserver/service/eats"
@@ -19,12 +22,18 @@ import (
 
 func main() {
 
-	runtime := common.NewRuntime()
-	workflowClient, err := runtime.Builder.BuildCadenceClient()
+	// runtime := common.NewRuntime()
+	// workflowClient, err := runtime.Builder.BuildCadenceClient()
+	// if err != nil {
+	// 	panic(err)
+	// }
+	var h helper.SampleHelper
+	h.SetupServiceConfig()
+	workflowClient, err := h.Builder.BuildCadenceClient()
 	if err != nil {
+		h.Logger.Error("Failed to build cadence client.", zap.Error(err))
 		panic(err)
 	}
-
 	service.LoadTemplates()
 
 	restaurant := restaurant.NewService(workflowClient, "webserver/assets/data/menu.yaml")

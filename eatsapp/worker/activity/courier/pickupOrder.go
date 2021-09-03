@@ -4,19 +4,19 @@ import (
 	"context"
 	"errors"
 
-	"go.uber.org/cadence"
+	"trying/internal"
 )
 
 func init() {
-	cadence.RegisterActivity(PickUpOrderActivity)
+	internal.RegisterActivity(PickUpOrderActivity)
 }
 
 // PickUpOrderActivity implements the pick-up order activity.
-func PickUpOrderActivity(ctx context.Context, execution cadence.WorkflowExecution, orderID string) (string, error) {
+func PickUpOrderActivity(ctx context.Context, execution internal.WorkflowExecution, orderID string) (string, error) {
 	return "", errors.New("not implemented")
 }
 
-func notifyRestaurant(execution cadence.WorkflowExecution, orderID string) error {
+func notifyRestaurant(execution internal.WorkflowExecution, orderID string) error {
 	url := "http://localhost:8090/restaurant?action=p_sig&id=" + orderID +
 		"&workflow_id=" + execution.ID + "&run_id=" + execution.RunID
 	return sendPatch(url)

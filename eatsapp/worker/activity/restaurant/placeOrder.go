@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"net/url"
 
-	"go.uber.org/cadence"
+	"trying/internal"
 )
 
 func init() {
-	cadence.RegisterActivity(PlaceOrderActivity)
+	internal.RegisterActivity(PlaceOrderActivity)
 }
 
 // PlaceOrderActivity implements of send order activity.

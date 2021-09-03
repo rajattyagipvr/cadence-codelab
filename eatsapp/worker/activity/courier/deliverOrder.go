@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 
-	"go.uber.org/cadence"
+	"trying/internal"
 )
 
 func init() {
-	cadence.RegisterActivity(DeliverOrderActivity)
+	internal.RegisterActivity(DeliverOrderActivity)
 }
 
 // DeliverOrderActivity implements the devliver order activity.

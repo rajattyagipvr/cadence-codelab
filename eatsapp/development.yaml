@@ -1,0 +1,10 @@
+# config for sample
+domain: "samples-domain"
+service: "cadence-frontend-tunnel"
+host: "localhost:7933"
+# domain: "samples-domain"
+# service: "cadence-frontend"
+# host: "cadence:7933"
+# config for emitting metrics
+#prometheus:
+#  listenAddress: "127.0.0.1:9098"

@@ -2,9 +2,9 @@ package courier
 
 import (
 	"errors"
-	"go.uber.org/cadence"
+	"trying/internal"
 )
 
-func waitForRestaurantPickupConfirmation(ctx cadence.Context, signalName string) error {
+func waitForRestaurantPickupConfirmation(ctx internal.Context, signalName string) error {
 	return errors.New("not implemented")
 }

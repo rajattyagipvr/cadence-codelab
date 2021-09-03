@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"net/url"
 
-	"go.uber.org/cadence"
+	"trying/internal"
 )
 
 func init() {
-	cadence.RegisterActivity(DispatchCourierActivity)
+	internal.RegisterActivity(DispatchCourierActivity)
 }
 
 // DispatchCourierActivity implements the dispatch courier activity.

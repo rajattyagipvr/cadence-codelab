@@ -1,10 +1,10 @@
 package eats
 
 import (
-	"go.uber.org/cadence"
 	"time"
+	"trying/internal"
 )
 
-func placeRestaurantOrder(ctx cadence.Context, orderID string, items []string) (time.Duration, error) {
+func placeRestaurantOrder(ctx internal.Context, orderID string, items []string) (time.Duration, error) {
 	return time.Minute, nil
 }

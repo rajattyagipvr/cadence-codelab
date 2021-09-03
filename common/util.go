@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"go.uber.org/cadence"
-	"go.uber.org/cadence/.gen/go/cadence"
-	"go.uber.org/cadence/.gen/go/shared"
-	//"go.uber.org/cadence/common"
+	"go.uber.org/cadence/internal"
+	//"go.uber.org/cadence/.gen/go/cadence"
+	s "go.uber.org/cadence/.gen/go/shared"
+	"go.uber.org/cadence/common"
 	"go.uber.org/zap"
 	"github.com/uber-go/tally"
 	"gopkg.in/yaml.v2"
@@ -99,7 +99,7 @@ func (h *Runtime) doInit() {
 }
 
 // StartWorkflow starts a workflow
-func (h *Runtime) StartWorkflow(options cadence.StartWorkflowOptions, workflow interface{}, args ...interface{}) {
+func (h *Runtime) StartWorkflow(options internal.StartWorkflowOptions, workflow interface{}, args ...interface{}) {
 	workflowClient, err := h.Builder.BuildCadenceClient()
 	if err != nil {
 		h.Logger.Error("Failed to build cadence client.", zap.Error(err))
@@ -117,8 +117,8 @@ func (h *Runtime) StartWorkflow(options cadence.StartWorkflowOptions, workflow i
 }
 
 // StartWorkers starts workflow worker and activity worker based on configured options.
-func (h *Runtime) StartWorkers(domainName, groupName string, options cadence.WorkerOptions) {
-	worker := cadence.NewWorker(h.Service, domainName, groupName, options)
+func (h *Runtime) StartWorkers(domainName, groupName string, options internal.WorkerOptions) {
+	worker := internal.NewWorker(h.Service, domainName, groupName, options)
 	err := worker.Start()
 	if err != nil {
 		h.Logger.Error("Failed to start workers.", zap.Error(err))

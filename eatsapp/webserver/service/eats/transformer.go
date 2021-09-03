@@ -58,7 +58,7 @@ func (h *TaskGroupExecution) Transform(workflowID string, runID string) (*TaskGr
 		TaskMap: make(map[int64]*Task),
 	}
 	ctx := context.Background()
-	history, err := h.client.GetWorkflowHistory(ctx, workflowID, runID, false, s.HistoryEventFilterTypeAllEvent), nil
+	history, err := h.client.GetWorkflowHistory(ctx, workflowID, runID, false, s.HistoryEventFilterTypeAllEvent), error(nil)
 	if err != nil {
 		return nil, err
 	}
@@ -67,10 +67,10 @@ func (h *TaskGroupExecution) Transform(workflowID string, runID string) (*TaskGr
 	
 	for _ = history; history.HasNext(); {
 		value, _ := history.Next()
-		append(tasks.History.Events, value) 
+		tasks.History.Events = append(tasks.History.Events, value) 
 	}
 
-
+	
 	for _, event := range tasks.History.Events {
 		transFunc, found := h.transformers[*event.EventType]
 		if !found {

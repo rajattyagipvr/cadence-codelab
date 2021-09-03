@@ -3,12 +3,16 @@ package common
 import (
 	"errors"
 
-	"go.uber.org/cadence"
+	"go.uber.org/cadence/client"
 	m "go.uber.org/cadence/.gen/go/cadence"
 
 	"github.com/uber-go/tally"
-	"github.com/uber/tchannel-go"
-	"github.com/uber/tchannel-go/thrift"
+	//"github.com/uber/tchannel-go"
+	//"github.com/uber/tchannel-go/thrift"
+	"go.uber.org/cadence/.gen/go/cadence/workflowserviceclient"
+	"go.uber.org/yarpc"
+	"go.uber.org/yarpc/api/transport"
+	"go.uber.org/yarpc/transport/tchannel"
 )
 
 const (
@@ -55,25 +59,25 @@ func (b *WorkflowClientBuilder) SetMetricsScope(metricsScope tally.Scope) *Workf
 }
 
 // BuildCadenceClient builds a client to cadence service
-func (b *WorkflowClientBuilder) BuildCadenceClient() (cadence.Client, error) {
+func (b *WorkflowClientBuilder) BuildCadenceClient() (client.Client, error) {
 	service, err := b.BuildServiceClient()
 	if err != nil {
 		return nil, err
 	}
 
-	return cadence.NewClient(
-		service, b.domain, &cadence.ClientOptions{Identity: b.clientIdentity, MetricsScope: b.metricsScope}), nil
+	return client.NewClient(
+		service, b.domain, &client.Options{Identity: b.clientIdentity, MetricsScope: b.metricsScope}), nil
 }
 
 // BuildCadenceDomainClient builds a domain client to cadence service
-func (b *WorkflowClientBuilder) BuildCadenceDomainClient() (cadence.DomainClient, error) {
+func (b *WorkflowClientBuilder) BuildCadenceDomainClient() (client.DomainClient, error) {
 	service, err := b.BuildServiceClient()
 	if err != nil {
 		return nil, err
 	}
 
-	return cadence.NewDomainClient(
-		service, &cadence.ClientOptions{Identity: b.clientIdentity, MetricsScope: b.metricsScope}), nil
+	return client.NewDomainClient(
+		service, &client.Options{Identity: b.clientIdentity, MetricsScope: b.metricsScope}), nil
 }
 
 // BuildServiceClient builds a thrift service client to cadence service

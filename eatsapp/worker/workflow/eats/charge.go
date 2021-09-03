@@ -1,9 +1,9 @@
 package eats
 
 import (
-	"go.uber.org/cadence"
+	"trying/internal"
 )
 
-func chargeOrder(ctx cadence.Context, orderID string) error {
+func chargeOrder(ctx internal.Context, orderID string) error {
 	return nil
 }

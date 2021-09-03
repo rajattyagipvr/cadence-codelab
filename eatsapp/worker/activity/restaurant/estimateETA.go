@@ -4,11 +4,11 @@ import (
 	"context"
 	"time"
 
-	"go.uber.org/cadence"
+	"trying/internal"
 )
 
 func init() {
-	cadence.RegisterActivity(EstimateETAActivity)
+	internal.RegisterActivity(EstimateETAActivity)
 }
 
 // EstimateETAActivity implements the estimate eta activity.

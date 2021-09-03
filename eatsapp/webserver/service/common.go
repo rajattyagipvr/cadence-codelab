@@ -26,7 +26,7 @@ type (
 
 const (
 	// TemplatesGlob stores the value used to glob for templates.
-	TemplatesGlob = "eatsapp/webserver/assets/tmpl/*"
+	TemplatesGlob = "webserver/assets/tmpl/*"
 )
 
 // Templates stores the pre-processed templates.

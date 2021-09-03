@@ -2,7 +2,7 @@ package restaurant
 
 import (
 	common "github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
-	"go.uber.org/cadence"
+	"go.uber.org/cadence/client"
 	"net/http"
 )
 
@@ -11,7 +11,7 @@ type (
 	// RestaurantService implements handlers for requests sent
 	// to the restaurant http service
 	RestaurantService struct {
-		client cadence.Client
+		client client.Client
 		state  RestaurantState
 	}
 
@@ -53,7 +53,7 @@ const (
 )
 
 // NewService returns a new instance of the RestaurantService object.
-func NewService(c cadence.Client, menuFile string) *RestaurantService {
+func NewService(c client.Client, menuFile string) *RestaurantService {
 	menu, err := common.NewMenu(menuFile)
 	if err != nil {
 		panic("error loading menu file")
