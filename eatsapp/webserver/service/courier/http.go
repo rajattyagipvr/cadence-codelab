@@ -3,7 +3,7 @@ package courier
 import (
 	"net/http"
 
-	"go.uber.org/cadence"
+	"go.uber.org/cadence/client"
 )
 
 type (
@@ -27,7 +27,7 @@ type (
 	// CourierService implements the handlers for requests
 	// sent to the courier http service
 	CourierService struct {
-		client        cadence.Client
+		client        client.Client
 		DeliveryQueue DeliveryQueue
 	}
 )
@@ -41,7 +41,7 @@ const (
 )
 
 // NewService returns a new instance of the CourierService object.
-func NewService(c cadence.Client) *CourierService {
+func NewService(c client.Client) *CourierService {
 	return &CourierService{
 		client: c,
 		DeliveryQueue: DeliveryQueue{

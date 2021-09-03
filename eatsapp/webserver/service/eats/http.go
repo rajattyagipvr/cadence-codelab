@@ -2,7 +2,7 @@ package eats
 
 import (
 	common "github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
-	"go.uber.org/cadence"
+	"go.uber.org/cadence/client"
 	s "go.uber.org/cadence/.gen/go/shared"
 	"net/http"
 )
@@ -12,7 +12,7 @@ type (
 	// to the Eats http service
 	EatsService struct {
 		menu   *common.Menu
-		client cadence.Client
+		client client.Client
 	}
 
 	// EatsOrderListPage models the data to be displayed in response to
@@ -28,7 +28,7 @@ const (
 )
 
 // NewService returns a new EatsService instance
-func NewService(c cadence.Client, menu *common.Menu) *EatsService {
+func NewService(c client.Client, menu *common.Menu) *EatsService {
 	return &EatsService{
 		client: c,
 		menu:   menu,

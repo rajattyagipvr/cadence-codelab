@@ -5,10 +5,16 @@ import (
 	"net/http"
 
 	"github.com/rajattyagipvr/cadence-codelab/common"
-	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
-	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/courier"
-	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/eats"
-	"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/restaurant"
+	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
+	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/courier"
+	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/eats"
+	//"github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service/restaurant"
+	"trying/webserver/service"
+	"trying/webserver/service/courier"
+	"trying/webserver/service/eats"
+	"trying/webserver/service/restaurant"
+
+
 )
 
 func main() {
@@ -21,7 +27,7 @@ func main() {
 
 	service.LoadTemplates()
 
-	restaurant := restaurant.NewService(workflowClient, "eatsapp/webserver/assets/data/menu.yaml")
+	restaurant := restaurant.NewService(workflowClient, "webserver/assets/data/menu.yaml")
 
 	http.Handle("/restaurant", restaurant)
 	http.Handle("/courier", courier.NewService(workflowClient))

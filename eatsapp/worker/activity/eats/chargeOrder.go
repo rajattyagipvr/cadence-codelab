@@ -4,12 +4,12 @@ import (
 	"context"
 	"time"
 
-	"go.uber.org/cadence"
+	"go.uber.org/cadence/activity"
 	"go.uber.org/zap"
 )
 
 func init() {
-	cadence.RegisterActivity(ChargeOrderActivity)
+	activity.RegisterActivity(ChargeOrderActivity)
 }
 
 // ChargeOrderActivity implements the change order activity.

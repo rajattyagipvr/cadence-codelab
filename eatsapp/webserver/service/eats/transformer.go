@@ -4,8 +4,8 @@ import (
 	"errors"
 	"path"
 	"strconv"
-
-	"go.uber.org/cadence"
+	"context"
+	"go.uber.org/cadence/client"
 	s "go.uber.org/cadence/.gen/go/shared"
 )
 
@@ -15,37 +15,37 @@ type (
 
 	// TaskGroupExecution implements object to transform a workflow history into a TaskGroup.
 	TaskGroupExecution struct {
-		client       cadence.Client
+		client       client.Client
 		transformers map[s.EventType]transformFunc
 	}
 )
 
 // NewTaskGroupExecution returns a new instanc of TaskGroupExecution.
-func NewTaskGroupExecution(c cadence.Client) *TaskGroupExecution {
+func NewTaskGroupExecution(c client.Client) *TaskGroupExecution {
 	obj := &TaskGroupExecution{
 		client:       c,
 		transformers: make(map[s.EventType]transformFunc),
 	}
 
-	obj.transformers[s.EventType_WorkflowExecutionStarted] = obj.tfWorkflowExecutionStarted
-	obj.transformers[s.EventType_WorkflowExecutionCompleted] = obj.tfWorkflowExecutionCompleted
-	obj.transformers[s.EventType_WorkflowExecutionFailed] = obj.tfWorkflowExecutionFailed
+	obj.transformers[s.EventTypeWorkflowExecutionStarted] = obj.tfWorkflowExecutionStarted
+	obj.transformers[s.EventTypeWorkflowExecutionCompleted] = obj.tfWorkflowExecutionCompleted
+	obj.transformers[s.EventTypeWorkflowExecutionFailed] = obj.tfWorkflowExecutionFailed
 
-	obj.transformers[s.EventType_ActivityTaskScheduled] = obj.tfActivityTaskScheduled
-	obj.transformers[s.EventType_ActivityTaskStarted] = obj.tfActivityTaskStarted
-	obj.transformers[s.EventType_ActivityTaskCompleted] = obj.tfActivityTaskCompleted
-	obj.transformers[s.EventType_ActivityTaskFailed] = obj.tfActivityTaskFailed
-	obj.transformers[s.EventType_ActivityTaskTimedOut] = obj.tfActivityTaskTimedOut
+	obj.transformers[s.EventTypeActivityTaskScheduled] = obj.tfActivityTaskScheduled
+	obj.transformers[s.EventTypeActivityTaskStarted] = obj.tfActivityTaskStarted
+	obj.transformers[s.EventTypeActivityTaskCompleted] = obj.tfActivityTaskCompleted
+	obj.transformers[s.EventTypeActivityTaskFailed] = obj.tfActivityTaskFailed
+	obj.transformers[s.EventTypeActivityTaskTimedOut] = obj.tfActivityTaskTimedOut
 
-	obj.transformers[s.EventType_StartChildWorkflowExecutionInitiated] = obj.tfStartChildWorkflowExecutionInitiated
-	obj.transformers[s.EventType_ChildWorkflowExecutionStarted] = obj.tfChildWorkflowExecutionStarted
-	obj.transformers[s.EventType_ChildWorkflowExecutionCompleted] = obj.tfChildWorkflowExecutionCompleted
-	obj.transformers[s.EventType_ChildWorkflowExecutionFailed] = obj.tfChildWorkflowExecutionFailed
-	obj.transformers[s.EventType_ChildWorkflowExecutionTimedOut] = obj.tfChildWorkflowExecutionTimedOut
+	obj.transformers[s.EventTypeStartChildWorkflowExecutionInitiated] = obj.tfStartChildWorkflowExecutionInitiated
+	obj.transformers[s.EventTypeChildWorkflowExecutionStarted] = obj.tfChildWorkflowExecutionStarted
+	obj.transformers[s.EventTypeChildWorkflowExecutionCompleted] = obj.tfChildWorkflowExecutionCompleted
+	obj.transformers[s.EventTypeChildWorkflowExecutionFailed] = obj.tfChildWorkflowExecutionFailed
+	obj.transformers[s.EventTypeChildWorkflowExecutionTimedOut] = obj.tfChildWorkflowExecutionTimedOut
 
-	obj.transformers[s.EventType_TimerStarted] = obj.tfTimerStarted
-	obj.transformers[s.EventType_TimerFired] = obj.tfTimerFired
-	obj.transformers[s.EventType_TimerCanceled] = obj.tfTimerCanceled
+	obj.transformers[s.EventTypeTimerStarted] = obj.tfTimerStarted
+	obj.transformers[s.EventTypeTimerFired] = obj.tfTimerFired
+	obj.transformers[s.EventTypeTimerCanceled] = obj.tfTimerCanceled
 	return obj
 }
 
@@ -57,14 +57,21 @@ func (h *TaskGroupExecution) Transform(workflowID string, runID string) (*TaskGr
 		Tasks:   make([]*Task, 0),
 		TaskMap: make(map[int64]*Task),
 	}
-
-	history, err := h.client.GetWorkflowHistory(workflowID, runID)
+	ctx := context.Background()
+	history, err := h.client.GetWorkflowHistory(ctx, workflowID, runID, false, s.HistoryEventFilterTypeAllEvent), nil
 	if err != nil {
 		return nil, err
 	}
-	tasks.History = history
+	//tasks.History = history
+	//rajat
+	
+	for _ = history; history.HasNext(); {
+		value, _ := history.Next()
+		append(tasks.History.Events, value) 
+	}
 
-	for _, event := range history.Events {
+
+	for _, event := range tasks.History.Events {
 		transFunc, found := h.transformers[*event.EventType]
 		if !found {
 			continue

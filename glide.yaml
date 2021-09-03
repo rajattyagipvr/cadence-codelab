@@ -1,4 +1,4 @@
-package: github.com/venkat1109/cadence-codelab
+package: github.com/rajattyagipvr/cadence-codelab
 import:
 - package: github.com/pborman/uuid
 - package: github.com/uber-go/tally
@@ -10,3 +10,6 @@ import:
   - zapcore
 - package: github.com/uber/tchannel-go
 - package: github.com/urfave/cli
+- package: github.com/cespare/xxhash
+  subpackages:
+  - v2

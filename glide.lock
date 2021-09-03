@@ -1,12 +1,16 @@
-hash: 239964a799ec1fbf7a0b7baf624d44d17b391b2fa5d3ec271739eb3dce453f9a
-updated: 2017-07-08T12:11:03.629629856-07:00
+hash: 18607835d3b129f380a40fb0352981e68f7a458c5603b2da35b039d38a951a31
+updated: 2021-08-30T19:14:34.157432+05:30
 imports:
 - name: github.com/apache/thrift
   version: 9549b25c77587b29be4e0b5c258221a4ed85d37a
   subpackages:
   - lib/go/thrift
+- name: github.com/cespare/xxhash
+  version: 532df6ae81bf8c2b37d4a375e13f720d2f28a81f
+  subpackages:
+  - v2
 - name: github.com/davecgh/go-spew
-  version: 346938d642f2ec3594ed81d874461961cd0faa76
+  version: d8f796af33cc11cb798c1aaeb27a4ebc5099927d
   subpackages:
   - spew
 - name: github.com/facebookgo/clock
@@ -19,13 +23,27 @@ imports:
 - name: github.com/pborman/uuid
   version: a97ce2ca70fa5a848076093f05e639a89ca34d06
 - name: github.com/pmezard/go-difflib
-  version: 792786c7400a136282c1664665ae0a8db921c6c2
+  version: 5d4384ee4fb2527b0a1256a821ebfc92f91efefc
   subpackages:
   - difflib
+- name: github.com/rajattyagipvr/cadence-codelab
+  version: e114260459e87a1212bbf7f9a7b2eeeee29dbd8f
+  subpackages:
+  - common
+  - eatsapp/webserver/service
+  - eatsapp/webserver/service/courier
+  - eatsapp/webserver/service/eats
+  - eatsapp/webserver/service/restaurant
+  - eatsapp/worker/activity/courier
+  - eatsapp/worker/activity/eats
+  - eatsapp/worker/activity/restaurant
+  - eatsapp/worker/workflow/courier
+  - eatsapp/worker/workflow/eats
+  - eatsapp/worker/workflow/restaurant
 - name: github.com/stretchr/objx
-  version: 1a9d0bb9f541897e62256577b352fdbc1fb4fd94
+  version: 27373ced094756c353f68145eb313a575ca613ed
 - name: github.com/stretchr/testify
-  version: f6abca593680b2315d2075e0f5e2a9751e3f431a
+  version: ab6dc3262822ed562480c19876b0257ace761e3e
   subpackages:
   - assert
   - mock
@@ -71,7 +89,7 @@ imports:
   - internal/multierror
   - zapcore
 - name: golang.org/x/net
-  version: 30f03014b4f11f9f238fdeca8cca734746a24fbb
+  version: e898025ed96aa6d08e98132b8dca210e9e7a0cd2
   subpackages:
   - bpf
   - context
@@ -79,10 +97,14 @@ imports:
   - internal/socket
   - ipv4
   - ipv6
-- name: golang.org/x/tools
-  version: bce9606b3f617bc6280aab6abbf25962c23f398d
+- name: golang.org/x/sys
+  version: 63515b42dcdf9544f4e6a02fd7632793fde2f72d
   subpackages:
-  - cmd/guru/testdata/src/lib
+  - internal/unsafeheader
+  - unix
+  - windows
 - name: gopkg.in/yaml.v2
   version: a83829b6f1293c91addabc89d0571c246397bbf4
+- name: gopkg.in/yaml.v3
+  version: 496545a6307b2a7d7a710fd516e5e16e8ab62dbc
 testImports: []

@@ -3,7 +3,7 @@ package eats
 import (
 	// "github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/eats"
 	"fmt"
-	"go.uber.org/cadence"
+	"go.uber.org/cadence/client"
 	"net/http"
 	"strings"
 	// "time"
@@ -40,7 +40,7 @@ func (h *EatsService) create(w http.ResponseWriter, r *http.Request) {
 }
 
 // startOrderWorkflow starts the eats order workflow
-func (h *EatsService) startOrderWorkflow(items []string) (*cadence.WorkflowExecution, error) {
+func (h *EatsService) startOrderWorkflow(items []string) (*client.WorkflowExecution, error) {
 	// THIS IS A PLACEHOLDER IMPLEMENTATION
 	return nil, fmt.Errorf("not implemented")
 }
