@@ -1,12 +1,15 @@
 package eats
 
 import (
-	// "github.com/rajattyagipvr/cadence-codelab/eatsapp/worker/workflow/eats"
 	"fmt"
+	"time"
 	"net/http"
 	"strings"
-
+	"trying/helper"
+	"github.com/pborman/uuid"
+	"go.uber.org/cadence/client"
 	"github.com/uber/cadence/common/types"
+	//"github.com/uber/tchannel-go/crossdock/client"
 	// "time"
 )
 
@@ -44,5 +47,20 @@ func (h *EatsService) create(w http.ResponseWriter, r *http.Request) {
 
 func (h *EatsService) startOrderWorkflow(items []string) (*types.WorkflowExecution, error) {
 	// THIS IS A PLACEHOLDER IMPLEMENTATION
-	return nil, fmt.Errorf("not implemented")
+	
+	var wf helper.SampleHelper
+	wf.SetupServiceConfig()
+	startWorkflow(&wf)
+	
+	//return nil, fmt.Errorf("not implemented")
+}
+
+func startWorkflow(h *helper.SampleHelper) {
+	workflowOptions := client.StartWorkflowOptions{
+		ID:                              "ubereats_" + uuid.New(),
+		TaskList:                        "ApplicationName",
+		ExecutionStartToCloseTimeout:    time.Minute,
+		DecisionTaskStartToCloseTimeout: time.Minute,
+	}
+	h.StartWorkflow(workflowOptions, "WorkflowName", "Cadence")
 }

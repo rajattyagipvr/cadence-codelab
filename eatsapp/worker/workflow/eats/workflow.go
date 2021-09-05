@@ -1,18 +1,18 @@
 package eats
 
 import (
+	"go.uber.org/cadence/workflow"
 	"go.uber.org/zap"
-	"trying/internal"
 )
 
-func init() {
-	internal.RegisterWorkflow(OrderWorkflow)
-}
+// func init() {
+// 	helper.RegisterWorkflow(OrderWorkflow)
+// }
 
 // OrderWorkflow implements the eats order workflow.
-func OrderWorkflow(ctx internal.Context, orderID string, items []string) error {
+func OrderWorkflow(ctx workflow.Context, orderID string, items []string) error {
 
-	internal.GetLogger(ctx).Info("Received order", zap.Strings("items", items))
+	workflow.GetLogger(ctx).Info("Received order", zap.Strings("items", items))
 
 	restaurantEta, err := placeRestaurantOrder(ctx, orderID, items)
 	if err != nil {
@@ -34,6 +34,6 @@ func OrderWorkflow(ctx internal.Context, orderID string, items []string) error {
 		return err
 	}
 
-	internal.GetLogger(ctx).Info("Completed order", zap.String("order", orderID))
+	workflow.GetLogger(ctx).Info("Completed order", zap.String("order", orderID))
 	return nil
 }

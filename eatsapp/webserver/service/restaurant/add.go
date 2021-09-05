@@ -1,8 +1,8 @@
 package restaurant
 
 import (
-	common "github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
 	"net/http"
+	common "trying/webserver/service"
 )
 
 func (h *RestaurantService) addOrder(w http.ResponseWriter, r *http.Request) {

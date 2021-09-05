@@ -26,7 +26,7 @@ type (
 
 const (
 	// TemplatesGlob stores the value used to glob for templates.
-	TemplatesGlob = "webserver/assets/tmpl/*"
+	TemplatesGlob = "assets/tmpl/*"
 )
 
 // Templates stores the pre-processed templates.

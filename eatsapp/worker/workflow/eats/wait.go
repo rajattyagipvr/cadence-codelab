@@ -3,9 +3,10 @@ package eats
 import (
 	"errors"
 	"time"
-	"trying/internal"
+
+	"go.uber.org/cadence/workflow"
 )
 
-func waitForRestaurant(ctx internal.Context, signalName string, eta time.Duration) error {
+func waitForRestaurant(ctx workflow.Context, signalName string, eta time.Duration) error {
 	return errors.New("not implemented")
 }

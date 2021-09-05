@@ -4,12 +4,11 @@ import (
 	"context"
 	"errors"
 
-	"trying/internal"
 )
 
-func init() {
-	internal.RegisterActivity(DeliverOrderActivity)
-}
+// func init() {
+// 	helper.RegisterActivity(DeliverOrderActivity)
+// }
 
 // DeliverOrderActivity implements the devliver order activity.
 func DeliverOrderActivity(ctx context.Context, orderID string) (string, error) {

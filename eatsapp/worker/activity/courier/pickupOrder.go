@@ -3,20 +3,20 @@ package courier
 import (
 	"context"
 	"errors"
-
-	"trying/internal"
+	"go.uber.org/cadence/workflow"
+	
 )
 
-func init() {
-	internal.RegisterActivity(PickUpOrderActivity)
-}
+// func init() {
+// 	workflow.RegisterActivity(PickUpOrderActivity)
+// }
 
 // PickUpOrderActivity implements the pick-up order activity.
-func PickUpOrderActivity(ctx context.Context, execution internal.WorkflowExecution, orderID string) (string, error) {
+func PickUpOrderActivity(ctx context.Context,  orderID string) (string, error) {
 	return "", errors.New("not implemented")
 }
 
-func notifyRestaurant(execution internal.WorkflowExecution, orderID string) error {
+func notifyRestaurant(execution workflow.Execution, orderID string) error {
 	url := "http://localhost:8090/restaurant?action=p_sig&id=" + orderID +
 		"&workflow_id=" + execution.ID + "&run_id=" + execution.RunID
 	return sendPatch(url)

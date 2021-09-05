@@ -36,7 +36,7 @@ func main() {
 	}
 	service.LoadTemplates()
 
-	restaurant := restaurant.NewService(workflowClient, "webserver/assets/data/menu.yaml")
+	restaurant := restaurant.NewService(workflowClient, "assets/data/menu.yaml")
 
 	http.Handle("/restaurant", restaurant)
 	http.Handle("/courier", courier.NewService(workflowClient))

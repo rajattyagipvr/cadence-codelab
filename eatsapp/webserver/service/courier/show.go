@@ -1,7 +1,7 @@
 package courier
 
 import (
-	common "github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
+	common "trying/webserver/service"
 	"net/http"
 )
 

@@ -1,7 +1,7 @@
 package eats
 
 import (
-	common "github.com/rajattyagipvr/cadence-codelab/eatsapp/webserver/service"
+	common "trying/webserver/service"
 	"go.uber.org/cadence/client"
 	s "go.uber.org/cadence/.gen/go/shared"
 	"net/http"
@@ -41,8 +41,9 @@ func (h *EatsService) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		// PLACEHOLDER IMPL
 		http.Error(w, "Not Implemented", http.StatusInternalServerError)
 	case "POST":
+		h.create(w, r)
 		// PLACEHOLDER IMPL
-		http.Error(w, "Not Implemented", http.StatusInternalServerError)
+		//http.Error(w, "Not Implemented", http.StatusInternalServerError)
 	default:
 		http.Error(w, "", http.StatusInternalServerError)
 		return

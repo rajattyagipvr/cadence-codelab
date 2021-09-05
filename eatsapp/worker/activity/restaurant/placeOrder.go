@@ -2,20 +2,20 @@ package restaurant
 
 import (
 	"context"
-	"errors"
+	//"errors"
 	"net/http"
 	"net/url"
-
-	"trying/internal"
 )
 
-func init() {
-	internal.RegisterActivity(PlaceOrderActivity)
-}
+// func init() {
+// 	workflow.RegisterActivity(PlaceOrderActivity)
+// }
 
 // PlaceOrderActivity implements of send order activity.
 func PlaceOrderActivity(ctx context.Context, wfRunID string, orderID string, items []string) (string, error) {
-	return "", errors.New("not implemented")
+	
+	return "success",sendOrder(wfRunID, orderID, items,"test")
+	//return "", errors.New("not implemented")
 }
 
 func sendOrder(wfRunID string, orderID string, items []string, taskToken string) error {

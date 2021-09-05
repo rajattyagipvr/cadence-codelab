@@ -1,9 +1,7 @@
 package eats
 
-import (
-	"trying/internal"
-)
+import "go.uber.org/cadence/workflow"
 
-func deliverOrder(ctx internal.Context, orderID string) error {
+func deliverOrder(ctx workflow.Context, orderID string) error {
 	return nil
 }

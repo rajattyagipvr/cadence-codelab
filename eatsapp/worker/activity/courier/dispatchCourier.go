@@ -6,12 +6,11 @@ import (
 	"net/http"
 	"net/url"
 
-	"trying/internal"
 )
 
-func init() {
-	internal.RegisterActivity(DispatchCourierActivity)
-}
+// func init() {
+// 	workflow.RegisterActivity(DispatchCourierActivity)
+// }
 
 // DispatchCourierActivity implements the dispatch courier activity.
 func DispatchCourierActivity(ctx context.Context, orderID string) (string, error) {
